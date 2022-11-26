@@ -26,4 +26,4 @@ class Profile {
 		//methods
 		std::string get_full_name(); // formats as displayName (@username)
 
-}
+};

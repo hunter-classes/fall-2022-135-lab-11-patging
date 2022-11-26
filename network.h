@@ -21,8 +21,7 @@ class Network {
 		/*
 			So each col and line is a profile in the network, defined by their id;
 
-			following[col][row] tells us whether or not user with id col and user with
-			id row are friends
+			following[col][row] tells us whether or not col follows row
 		*/
 
 
@@ -36,10 +35,10 @@ class Network {
 
 		bool addUser(std::string username, std::string display_name); // adds user with a usrname and display name
 
- 		bool follow(string usrn1, string usrn2); // adds following func to network
+ 		bool follow(std::string usrn1, std::string usrn2); // adds following func to network
 
  		void printDot(); // prints dot file of network
 
-}
+};
 
 

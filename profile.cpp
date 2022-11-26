@@ -7,7 +7,7 @@
 	has implementation of Profile class in profile.h
 */
 #include <iostream>
-
+#include <cctype>
 #include "profile.h"
 
 Profile::Profile() {
@@ -21,7 +21,26 @@ Profile::Profile() {
 Profile::Profile(std::string uname, std::string dname) {
 	/*
 		Profile constuctor. Assigns username and display_name
+
+		username cannot be blank or non-alphanumeric and must be unique
+		or else returns blank profile
 	*/
+
+	//checking username for blank & alphanumericy
+	if (uname == "") {
+		username = "";
+		display_name = "";	
+		return;
+	}
+
+	for(int i=0; i<uname.length();i++) {
+		if (! std::isalnum(uname[i])) {
+			username = "";
+			display_name = "";	
+			return;
+		}
+	}
+
 	username = uname;
 	display_name = dname;	
 }
@@ -40,10 +59,10 @@ std::string Profile::get_display_name() {
 //setters
 void Profile::set_display_name(std::string new_display_name) {
 	//sets display_name to new_display_name
-	return new_display_name;
+	display_name = new_display_name;
 	}
 
-std::string get_full_name() {
+std::string Profile::get_full_name() {
 	/*
 		Returns string in format display_name (@username)
 	*/
