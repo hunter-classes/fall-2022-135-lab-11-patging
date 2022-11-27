@@ -64,7 +64,7 @@ bool Network::follow(std::string usr1, std::string usr2) {
 	int id1 = findID(usr1);
 	int id2 = findID(usr2);
 
-	if(id1 == -1 || id2 == -1) {
+	if(id1 == -1 || id2 == -1 || id1 == id2) {
 		return false;
 	}
 
